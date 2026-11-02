@@ -8,7 +8,7 @@ public class ScoreSystem
 {
     public const int CorrectPoints = 10;
     public const int MistakePenalty = 2;
-    public const int PreviewHintCost = 5;
+    public const int PreviewHintCost = 30;
     public const int PlaceHintCost = 15;
     public const int BonusPerPiece = 20;
 
