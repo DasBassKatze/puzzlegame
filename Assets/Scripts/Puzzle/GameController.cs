@@ -262,6 +262,8 @@ public class GameController : MonoBehaviour
             return;
         if (hints.ShowPreview())
             toast.Show($"Подсказка: исходная картинка (−{ScoreSystem.PreviewHintCost})", 1.5f);
+        else if (score.Score < ScoreSystem.PreviewHintCost)
+            toast.Show($"Недостаточно очков. Для просмотра картинки нужно {ScoreSystem.PreviewHintCost} очков.");
     }
 
     private void OnPlaceHint()
@@ -273,6 +275,8 @@ public class GameController : MonoBehaviour
             AudioManager.PlaySnap();
             toast.Show($"Подсказка: фрагмент поставлен на место (−{ScoreSystem.PlaceHintCost})", 1.5f);
         }
+        else if (score.Score < ScoreSystem.PlaceHintCost)
+            toast.Show($"Недостаточно очков. Для установки фрагмента нужно {ScoreSystem.PlaceHintCost} очков.");
     }
 
     private void OnCompleted()

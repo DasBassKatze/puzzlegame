@@ -24,7 +24,8 @@ public class HintSystem
     {
         if (previewActive)
             return false;
-        score.SpendHint(ScoreSystem.PreviewHintCost);
+        if (!score.SpendHint(ScoreSystem.PreviewHintCost))
+            return false;
         host.StartCoroutine(PreviewRoutine());
         return true;
     }
@@ -44,7 +45,8 @@ public class HintSystem
         PuzzlePiece piece = board.GetRandomUnplaced();
         if (piece == null)
             return false;
-        score.SpendHint(ScoreSystem.PlaceHintCost);
+        if (!score.SpendHint(ScoreSystem.PlaceHintCost))
+            return false;
         board.PlacePiece(piece, false);
         return true;
     }

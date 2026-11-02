@@ -34,10 +34,13 @@ public class ScoreSystem
         Score = Mathf.Max(0, Score - MistakePenalty);
     }
 
-    public void SpendHint(int cost)
+    public bool SpendHint(int cost)
     {
+        if (Score < cost)
+            return false;
         HintsUsed++;
-        Score = Mathf.Max(0, Score - cost);
+        Score -= cost;
+        return true;
     }
 
     /// <summary>Бонус уменьшается на 1 очко за каждую секунду сборки.</summary>
